@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button"
 import { Archive } from "@/data/archives"
 import Icon from "@/components/ui/icon"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface ArchiveModalProps {
   archive: Archive | null
@@ -57,7 +58,7 @@ export function ArchiveModal({ archive, isOpen, onClose }: ArchiveModalProps) {
           {archive.allPages && (
             <div>
               <h3 className="text-sm font-medium text-zinc-400 mb-2">Все страницы ВКонтакте:</h3>
-              <div className="relative">
+              <div className="relative min-h-[120px]">
                 <div className="blur-sm select-none pointer-events-none">
                   {archive.allPages.slice(0, 3).map((page, idx) => (
                     <p key={idx} className="text-zinc-500 text-sm">
@@ -66,20 +67,36 @@ export function ArchiveModal({ archive, isOpen, onClose }: ArchiveModalProps) {
                   ))}
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {!showVerificationError ? (
-                    <Button
-                      onClick={handleShowMore}
-                      className="bg-white text-zinc-900 hover:bg-zinc-100"
-                    >
-                      Показать весь архив
-                    </Button>
-                  ) : (
-                    <div className="bg-zinc-800 border border-zinc-700 rounded-lg p-4 text-center">
-                      <Icon name="Lock" className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
-                      <p className="text-zinc-300 font-medium">Вы не верифицированы</p>
-                      <p className="text-sm text-zinc-400 mt-1">Пожалуйста, пройдите верификацию</p>
-                    </div>
-                  )}
+                  <AnimatePresence mode="wait">
+                    {!showVerificationError ? (
+                      <motion.div
+                        key="button"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Button
+                          onClick={handleShowMore}
+                          className="bg-white text-zinc-900 hover:bg-zinc-100"
+                        >
+                          Показать весь архив
+                        </Button>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="error"
+                        initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="bg-zinc-800 border border-zinc-700 rounded-lg p-4 text-center"
+                      >
+                        <Icon name="Lock" className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
+                        <p className="text-zinc-300 font-medium">Вы не верифицированы</p>
+                        <p className="text-sm text-zinc-400 mt-1">Пожалуйста, пройдите верификацию</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
             </div>
@@ -88,7 +105,7 @@ export function ArchiveModal({ archive, isOpen, onClose }: ArchiveModalProps) {
           {archive.allCommunities && (
             <div>
               <h3 className="text-sm font-medium text-zinc-400 mb-2">Все Сообщества:</h3>
-              <div className="relative">
+              <div className="relative min-h-[120px]">
                 <div className="blur-sm select-none pointer-events-none">
                   {archive.allCommunities.slice(0, 3).map((comm, idx) => (
                     <p key={idx} className="text-zinc-500 text-sm">
@@ -97,20 +114,36 @@ export function ArchiveModal({ archive, isOpen, onClose }: ArchiveModalProps) {
                   ))}
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {!showVerificationError ? (
-                    <Button
-                      onClick={handleShowMore}
-                      className="bg-white text-zinc-900 hover:bg-zinc-100"
-                    >
-                      Показать весь архив
-                    </Button>
-                  ) : (
-                    <div className="bg-zinc-800 border border-zinc-700 rounded-lg p-4 text-center">
-                      <Icon name="Lock" className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
-                      <p className="text-zinc-300 font-medium">Вы не верифицированы</p>
-                      <p className="text-sm text-zinc-400 mt-1">Пожалуйста, пройдите верификацию</p>
-                    </div>
-                  )}
+                  <AnimatePresence mode="wait">
+                    {!showVerificationError ? (
+                      <motion.div
+                        key="button"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Button
+                          onClick={handleShowMore}
+                          className="bg-white text-zinc-900 hover:bg-zinc-100"
+                        >
+                          Показать весь архив
+                        </Button>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="error"
+                        initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="bg-zinc-800 border border-zinc-700 rounded-lg p-4 text-center"
+                      >
+                        <Icon name="Lock" className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
+                        <p className="text-zinc-300 font-medium">Вы не верифицированы</p>
+                        <p className="text-sm text-zinc-400 mt-1">Пожалуйста, пройдите верификацию</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
             </div>
@@ -121,7 +154,7 @@ export function ArchiveModal({ archive, isOpen, onClose }: ArchiveModalProps) {
               {archive.communities && archive.communities.length > 0 && (
                 <div>
                   <h3 className="text-sm font-medium text-zinc-400 mb-2">Сообщества:</h3>
-                  <div className="relative">
+                  <div className="relative min-h-[120px]">
                     <div className="blur-sm select-none pointer-events-none">
                       {archive.communities.map((comm, idx) => (
                         <p key={idx} className="text-zinc-500 text-sm">
@@ -130,20 +163,36 @@ export function ArchiveModal({ archive, isOpen, onClose }: ArchiveModalProps) {
                       ))}
                     </div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      {!showVerificationError ? (
-                        <Button
-                          onClick={handleShowMore}
-                          className="bg-white text-zinc-900 hover:bg-zinc-100"
-                        >
-                          Показать весь архив
-                        </Button>
-                      ) : (
-                        <div className="bg-zinc-800 border border-zinc-700 rounded-lg p-4 text-center">
-                          <Icon name="Lock" className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
-                          <p className="text-zinc-300 font-medium">Вы не верифицированы</p>
-                          <p className="text-sm text-zinc-400 mt-1">Пожалуйста, пройдите верификацию</p>
-                        </div>
-                      )}
+                      <AnimatePresence mode="wait">
+                        {!showVerificationError ? (
+                          <motion.div
+                            key="button"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <Button
+                              onClick={handleShowMore}
+                              className="bg-white text-zinc-900 hover:bg-zinc-100"
+                            >
+                              Показать весь архив
+                            </Button>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="error"
+                            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="bg-zinc-800 border border-zinc-700 rounded-lg p-4 text-center"
+                          >
+                            <Icon name="Lock" className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
+                            <p className="text-zinc-300 font-medium">Вы не верифицированы</p>
+                            <p className="text-sm text-zinc-400 mt-1">Пожалуйста, пройдите верификацию</p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </div>
                 </div>
@@ -152,7 +201,7 @@ export function ArchiveModal({ archive, isOpen, onClose }: ArchiveModalProps) {
               {archive.socials && archive.socials.length > 0 && (
                 <div>
                   <h3 className="text-sm font-medium text-zinc-400 mb-2">Социальные сети:</h3>
-                  <div className="relative">
+                  <div className="relative min-h-[120px]">
                     <div className="blur-sm select-none pointer-events-none">
                       {archive.socials.map((social, idx) => (
                         <p key={idx} className="text-zinc-500 text-sm">
@@ -161,20 +210,36 @@ export function ArchiveModal({ archive, isOpen, onClose }: ArchiveModalProps) {
                       ))}
                     </div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      {!showVerificationError ? (
-                        <Button
-                          onClick={handleShowMore}
-                          className="bg-white text-zinc-900 hover:bg-zinc-100"
-                        >
-                          Показать весь архив
-                        </Button>
-                      ) : (
-                        <div className="bg-zinc-800 border border-zinc-700 rounded-lg p-4 text-center">
-                          <Icon name="Lock" className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
-                          <p className="text-zinc-300 font-medium">Вы не верифицированы</p>
-                          <p className="text-sm text-zinc-400 mt-1">Пожалуйста, пройдите верификацию</p>
-                        </div>
-                      )}
+                      <AnimatePresence mode="wait">
+                        {!showVerificationError ? (
+                          <motion.div
+                            key="button"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <Button
+                              onClick={handleShowMore}
+                              className="bg-white text-zinc-900 hover:bg-zinc-100"
+                            >
+                              Показать весь архив
+                            </Button>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="error"
+                            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="bg-zinc-800 border border-zinc-700 rounded-lg p-4 text-center"
+                          >
+                            <Icon name="Lock" className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
+                            <p className="text-zinc-300 font-medium">Вы не верифицированы</p>
+                            <p className="text-sm text-zinc-400 mt-1">Пожалуйста, пройдите верификацию</p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </div>
                 </div>

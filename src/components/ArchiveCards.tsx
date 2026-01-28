@@ -16,7 +16,7 @@ export function ArchiveCards() {
 
   return (
     <>
-      <section className="w-full flex justify-center px-6 py-24" style={{ backgroundColor: "#09090B" }}>
+      <section id="archives" className="w-full flex justify-center px-6 py-24" style={{ backgroundColor: "#09090B" }}>
         <div className="w-full max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-medium text-white mb-4">

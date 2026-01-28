@@ -22,10 +22,12 @@ export function Navbar() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://t.me/kingofcevil"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-white bg-zinc-800 hover:bg-zinc-700 px-3.5 py-1.5 rounded-md border border-zinc-700 transition-colors"
             >
-              Предложить архив
+              Контакт
             </a>
           </div>
         </div>

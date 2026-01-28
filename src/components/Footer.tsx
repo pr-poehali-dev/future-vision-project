@@ -1,45 +1,38 @@
+import Icon from "@/components/ui/icon"
+
 export function Footer() {
-  const footerLinks = {
-    "Возможности": ["Планирование", "Разработка", "Аналитика", "Запросы клиентов", "Orbit Asks", "Безопасность", "Мобильное приложение"],
-    "Продукт": ["Тарифы", "Методология", "Интеграции", "История изменений", "Документация", "Скачать", "Перейти на Orbit"],
-    "Компания": ["О нас", "Клиенты", "Карьера", "Новости", "README", "Качество", "Бренд"],
-    "Ресурсы": ["Разработчикам", "Статус", "Стартапам", "Сообщить об уязвимости", "DPA", "Конфиденциальность", "Условия"],
-    "Связаться": ["Контакты", "Сообщество", "X (Twitter)", "GitHub", "YouTube"],
-  }
-
   return (
-    <footer className="border-t border-zinc-800 py-16 px-6" style={{ backgroundColor: "#09090B" }}>
+    <footer className="border-t border-zinc-800 py-12 px-6" style={{ backgroundColor: "#09090B" }}>
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
-          {/* Logo */}
-          <div className="col-span-2 md:col-span-1">
-            <svg width="20" height="20" viewBox="0 0 100 100" fill="none" className="text-white">
-              <path
-                d="M20 30 L50 10 L80 30 L80 70 L50 90 L20 70 Z"
-                fill="currentColor"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-              <path d="M50 10 L50 50 L20 30" fill="#09090B" />
-              <path d="M50 50 L80 70 L50 90" fill="#09090B" />
-            </svg>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-2">
+            <Icon name="Archive" className="w-5 h-5 text-zinc-500" />
+            <span className="text-zinc-500 text-sm">dnnarchive © 2026</span>
           </div>
-
-          {/* Links */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="text-white font-medium text-sm mb-4">{category}</h3>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-zinc-500 hover:text-zinc-300 transition-colors text-sm">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          
+          <div className="flex items-center gap-6">
+            <a 
+              href="/verification" 
+              className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+            >
+              Верификация
+            </a>
+            <a 
+              href="/support" 
+              className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+            >
+              Поддержка
+            </a>
+            <a 
+              href="https://t.me/kingofcevil" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors flex items-center gap-1"
+            >
+              Контакт
+              <Icon name="ExternalLink" size={12} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

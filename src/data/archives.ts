@@ -256,5 +256,52 @@ export const archives: Archive[] = [
     owner: "Владелец сообщества: Edwin Garrison",
     description: "ФрайтХрониклс это паблик созданная в 2020 году, с целью деаномизации разных личностей, была довольно таки популярна под ведением Эдвина Гаррисона, в 2021 году паблик была продана Александру Гауссу, паблик потерял популярность из за прекращения постов и активности. Последующий владелец сообщества (текущий): Александр Гаусс",
     archiveLinks: ["https://archive.fo/Z4evv"]
+  },
+  {
+    id: 15,
+    name: "Яна Ашанова (Дропповод)",
+    aliases: ["Яна Ашанова", "Дропповод"],
+    period: "2019-2021",
+    owner: "Владелец сообществ: Von8Iceland, kkarophobia",
+    communities: ["vk.ru/Von8Iceland", "vk.ru/kkarophobia"],
+    socials: ["vk.ru/id654702441"],
+    archiveLinks: ["https://archive.fo/L5wky"]
+  },
+  {
+    id: 16,
+    name: "Акакий Гадюкин",
+    aliases: ["Акакий Гадюкин", "Алексей Гадюкин"],
+    period: "2016-2018",
+    owner: "Владелец сообществ: SweezyLegend (2017)",
+    socials: ["vk.ru/donteblan", "@dnnlegend"],
+    archiveLinks: ["https://archive.fo/knaEa"]
+  },
+  {
+    id: 17,
+    name: ".sekhmet",
+    aliases: [],
+    period: "2016-2021",
+    communities: ["vk.ru/sekhmettt", "vk.ru/eireneee"],
+    description: ".sekhmet это сообщество созданная в 2016 году в социальной сети ВКонтакте, созданная такими людьми как Максим Хоменко, KislitGrief. Очень быстро обрела популярность благодаря частым контентам, заливами. В участников .sekhmet входили такие личности как Максим Ландышев, Яна Ашанова, Георгий Герасимов, Клавдий Интерамнский.",
+    archiveLinks: ["https://archive.fo/kFBYa"]
+  },
+  {
+    id: 18,
+    name: "Asmodelphia",
+    aliases: [],
+    period: "2021",
+    owner: "Administrators: Август Римский / Штраунхармер, Scarlett Katana",
+    description: "Паблик, созданная с целью деаномизации разных личностей, быстро набрала популярность в 21 году благодаря деаномизации такой личности как Снэйл и сливу паблика Abbadon",
+    archiveLinks: ["https://archive.fo/E952k"]
+  },
+  {
+    id: 19,
+    name: "Август Римский (Штраунхармер)",
+    aliases: ["Штраунхармер", "Август Римский"],
+    period: "2017-2022/2023",
+    owner: "Владелец сообществ: Asmodelphia, Exorcism",
+    communities: ["vk.ru/Asmodelphia", "vk.ru/ScreamExorcism"],
+    socials: ["vk.ru/lenzlordov"],
+    archiveLinks: ["https://archive.fo/uDPAo"]
   }
 ]
